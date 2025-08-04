@@ -91,7 +91,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq doom-theme 'gruber-darker)
 
-(setq doom-font (font-spec :family "JetBrains Mono" :size 18))
+;(setq doom-font (font-spec :family "JetBrains Mono" :size 18))
+(setq doom-font (font-spec :family "Google Sans Code" :size 17))
 
 ;; Window size on startup
 (setq default-frame-alist '((width . 100) (height . 40)))
