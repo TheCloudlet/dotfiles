@@ -1,0 +1,231 @@
+{
+  // ---------------------------------------------------------------------------
+  // Appearance & Editor
+  // These settings control the overall look and feel of the editor.
+  // ---------------------------------------------------------------------------
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.cursorBlinking": "expand",
+  "editor.guides.bracketPairs": true,
+  "editor.lineNumbers": "relative",
+  "editor.mouseWheelZoom": true,
+  "editor.renderWhitespace": "trailing",
+  "editor.rulers": [80, 100],
+  "editor.smoothScrolling": true,
+  "editor.wordWrap": "on",
+  "vim.smartRelativeLine": true,
+  "workbench.startupEditor": "none",
+
+  // Highlight id
+  "editor.occurrencesHighlight": "multiFile",
+  "editor.selectionHighlight": true,
+
+  // File Encoding
+  "files.autoGuessEncoding": true,
+  "editor.renderControlCharacters": true,
+
+  // Fonts
+  "editor.fontFamily": "IntelOne Mono, Intel One Mono, IBM Plex Mono",
+  //"editor.fontFamily": "Fira Code",
+  //"editor.fontFamily": "IBM Plex Mono",
+  //"editor.fontFamily" : "Monaspace Argon Frozen",
+  //"editor.fontFamily" : "Google Sans Code",
+  //"editor.fontLigatures": true, // ->, !=, ==, =>, >=, <=,
+  "editor.fontLigatures": "'ss01'", // intel one mono ligature set
+  "editor.fontSize": 15,
+  "editor.fontVariations": true,
+  "editor.tabSize": 8,
+
+  // ---------------------------------------------------------------------------
+  // Terminal
+  // Customizations for the integrated terminal.
+  // ---------------------------------------------------------------------------
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.copyOnSelection": true,
+  //"terminal.integrated.fontFamily": "IntelOne Mono, Intel One Mono",
+  //"terminal.integrated.fontFamily": "IBM Plex Mono",
+  "terminal.integrated.fontFamily": "JetBrains Mono",
+  //"terminal.integrated.fontFamily" : "Monaspace Argon Frozen",
+  "terminal.integrated.commandsToSkipShell": [
+    "-workbench.action.quickOpen",
+    "-workbench.action.terminal.focusFind"
+  ],
+
+  // ---------------------------------------------------------------------------
+  // Indentation & Formatting
+  // These settings control how files are indented and formatted.
+  // ---------------------------------------------------------------------------
+  "editor.codeActionsOnSave": {}, // Disable all code actions on save by default
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  //"prettier.prettierPath": "$HOME/.npm_global/bin/prettier",
+
+  // Language-specific settings override global settings.
+  // Grouped by language for easy management.
+  "[haskell]": {
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": false
+  },
+  "[c]": {
+    "editor.tabSize": 4,
+    "editor.tabCompletion": "on",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true
+  },
+  "[cpp]": {
+    "editor.wordBasedSuggestions": "off",
+    "editor.semanticHighlighting.enabled": true,
+    "editor.stickyScroll.defaultModel": "foldingProviderModel",
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+
+  // Haskell LSP & Formatter
+  "haskell.languageServer.formattingProvider": "ormolu",
+  "haskell.ormolu.path": "ormolu", // 確保 ormolu 在 PATH 中
+  "haskell.manageHLS": "GHCup",
+
+  // Shortcuts & Keybindings
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["g", "r"],
+      "commands": [
+          "editor.action.goToReferences"
+      ]
+    }
+  ],
+
+  // ---------------------------------------------------------------------------
+  // C++ and C Language Extensions
+  // Settings for the C/C++ extension and related tools like Clang.
+  // ---------------------------------------------------------------------------
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "C_Cpp.codeFolding": "disabled",
+  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.cStandard": "c99",
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.clang_format_fallbackStyle": "llvm",
+  "C_Cpp.dimInactiveRegions": false,
+  "C_Cpp.codeAnalysis.updateDelay": 1000,
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+  "C_Cpp.codeAnalysis.clangTidy.codeAction.showDisable": false,
+
+  // Settings for the Clangd extension
+  "clangd.inactiveRegions.useBackgroundHighlight": false,
+
+  // ---------------------------------------------------------------------------
+  // Git
+  // Settings for Git integration.
+  // ---------------------------------------------------------------------------
+  "git.ignoreLegacyWarning": true,
+  "git.autofetch": true,
+
+  // ---------------------------------------------------------------------------
+  // Copilot and AI Extensions
+  // Settings related to GitHub Copilot and other AI-powered tools.
+  // ---------------------------------------------------------------------------
+  "github.copilot.advanced": {},
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "synopsysCopilot.homeDirectory": "/global/apps/copilot_2025.03-1",
+
+  // ---------------------------------------------------------------------------
+  // Telemetry & Updates
+  // These settings disable data collection and automatic updates.
+  // ---------------------------------------------------------------------------
+  "enableTelemetry": false,
+  "telemetry.telemetryLevel": "off",
+  "telemetry.enableCrashReporter": false,
+  "workbench.enableExperiments": false,
+  "update.showReleaseNotes": false,
+  "update.mode": "none",
+  "extensions.autoCheckUpdates": false,
+
+  // ---------------------------------------------------------------------------
+  // TODO Highlight Extension
+  // Settings for highlighting TODO comments in code.
+  // ---------------------------------------------------------------------------
+  "todohighlight.isCaseSensitive": true,
+  "todohighlight.keywords": [
+    {
+      "text": "TODO",
+      "color": "#000000",
+      "backgroundColor": "#ff6c6b",
+      "fontWeight": "bold"
+    },
+    {
+      "text": "STARTED",
+      "color": "#000000",
+      "backgroundColor": "#ecbe7b",
+      "fontWeight": "bold"
+    },
+    {
+      "text": "DONE",
+      "color": "#000000",
+      "backgroundColor": "#98be65",
+      "fontWeight": "bold"
+    },
+    {
+      "text": "NOTE",
+      "color": "#000000",
+      "backgroundColor": "#51afef",
+      "fontWeight": "bold"
+    },
+    {
+      "text": "FIXME",
+      "color": "#000000",
+      "backgroundColor": "#da8548",
+      "fontWeight": "bold"
+    },
+    {
+      "text": "WAIT",
+      "color": "#000000",
+      "backgroundColor": "#c678dd",
+      "fontWeight": "bold"
+    },
+    {
+      "text": "KILL",
+      "color": "#ffffff",
+      "backgroundColor": "#5b6268",
+      "fontWeight": "bold",
+      "textDecoration": "line-through"
+    }
+  ],
+
+  // ---------------------------------------------------------------------------
+  // Other Settings or Newly Added Settings
+  // Miscellaneous settings that don't fit into other categories.
+  // ---------------------------------------------------------------------------
+  "vim.searchHighlightColor": "#ff0000",
+  "vim.useSystemClipboard": false,
+  "explorer.confirmDelete": false,
+  "vsicons.dontShowNewVersionMessage": true,
+  "settingsSync.ignoredExtensions": ["llvm-vs-code-extensions.vscode-clangd"],
+  "security.workspace.trust.untrustedFiles": "open",
+  "remote.SSH.remotePlatform": {
+    "us01odcvde34835": "linux",
+    "us01odcvde01428": "linux",
+    "SnpsCitrix_us01odcvde01428": "linux"
+  },
+  "makefile.configureOnOpen": true,
+  "workbench.settings.applyToAllProfiles": [],
+  "search.followSymlinks": false,
+  "editor.inlayHints.enabled": "off",
+  "C_Cpp.copilotHover": "enabled",
+  "workbench.editor.defaultBinaryEditor": "default",
+  "markdown-preview-github-styles.colorTheme": "light",
+  "markdown-preview-github-styles.darkTheme": "light",
+  "search.showLineNumbers": true,
+  "workbench.iconTheme": "ayu",
+  "C_Cpp.enhancedColorization": "disabled",
+  "vim.easymotion": true,
+  "workbench.preferredDarkColorTheme": "Ayu Dark Bordered",
+  "editor.accessibilitySupport": "off",
+  "workbench.colorTheme": "GitHub Dark Default",
+}
