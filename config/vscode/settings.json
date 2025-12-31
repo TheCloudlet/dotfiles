@@ -28,7 +28,7 @@
 
   // Fonts
   "editor.fontFamily": "IntelOne Mono, Intel One Mono, IBM Plex Mono",
-  "editor.lineHeight": "1.4", // Intel One Mono
+  "editor.lineHeight": "1.45", // Intel One Mono
   "editor.letterSpacing": "0.1", // Intel One Mono
   //"editor.fontFamily": "Fira Code",
   //"editor.fontFamily": "IBM Plex Mono",
@@ -89,10 +89,16 @@
     "editor.semanticHighlighting.enabled": true,
     "editor.stickyScroll.defaultModel": "foldingProviderModel",
   },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-  },
+  //"[markdown]": {
+  //  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  //  //"editor.formatOnSave": true,
+  //},
+
+  // Markdown lint
+  "markdownlint.config": {
+    "default": true,
+    "MD004": { "style": "asterisk" },
+  }
 
   // Haskell LSP & Formatter
   "haskell.languageServer.formattingProvider": "ormolu",
