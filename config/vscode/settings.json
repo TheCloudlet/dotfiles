@@ -6,6 +6,8 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorBlinking": "expand",
   "editor.guides.bracketPairs": true,
+  "editor.hover.delay": 300,
+  "editor.hover.enabled": true,
   "editor.lineNumbers": "relative",
   "editor.mouseWheelZoom": true,
   "editor.renderWhitespace": "trailing",
@@ -114,6 +116,12 @@
 
   // Settings for the Clangd extension
   "clangd.inactiveRegions.useBackgroundHighlight": false,
+  "clangd.arguments": [
+    "--clang-tidy",
+    "--clang-tidy-checks=*",
+    "--header-insertion=never",          // optional: reduce auto-includes noise
+    "--compile-commands-dir=build"       // adjust to your folder
+  ],
 
   // ---------------------------------------------------------------------------
   // Git
@@ -222,10 +230,9 @@
   "markdown-preview-github-styles.colorTheme": "light",
   "markdown-preview-github-styles.darkTheme": "light",
   "search.showLineNumbers": true,
-  "workbench.iconTheme": "ayu",
   "C_Cpp.enhancedColorization": "disabled",
   "vim.easymotion": true,
-  "workbench.preferredDarkColorTheme": "Ayu Dark Bordered",
+  "workbench.preferredDarkColorTheme": "Tsoding Gruber Darker",
   "editor.accessibilitySupport": "off",
-  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
 }
