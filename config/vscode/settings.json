@@ -4,7 +4,8 @@
   // These settings control the overall look and feel of the editor.
   // ---------------------------------------------------------------------------
   "diffEditor.ignoreTrimWhitespace": false,
-  "editor.cursorBlinking": "expand",
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.guides.bracketPairs": true,
   "editor.hover.delay": 300,
   "editor.hover.enabled": true,
@@ -27,6 +28,8 @@
 
   // Fonts
   "editor.fontFamily": "IntelOne Mono, Intel One Mono, IBM Plex Mono",
+  "editor.lineHeight": "1.4", // Intel One Mono
+  "editor.letterSpacing": "0.1", // Intel One Mono
   //"editor.fontFamily": "Fira Code",
   //"editor.fontFamily": "IBM Plex Mono",
   //"editor.fontFamily" : "Monaspace Argon Frozen",
@@ -36,6 +39,13 @@
   "editor.fontSize": 15,
   "editor.fontVariations": true,
   "editor.tabSize": 8,
+
+  "workbench.colorCustomizations": {
+    "[Tsoding Gruber Darker]": {
+      "editor.background": "#101010",
+      "editor.lineHighlightBackground": "#282828"
+    }
+  },
 
   // ---------------------------------------------------------------------------
   // Terminal
@@ -234,5 +244,5 @@
   "vim.easymotion": true,
   "workbench.preferredDarkColorTheme": "Tsoding Gruber Darker",
   "editor.accessibilitySupport": "off",
-  "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
+  "workbench.colorTheme": "Tsoding Gruber Darker",
 }
