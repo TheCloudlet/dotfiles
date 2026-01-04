@@ -18,20 +18,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Performance Tweaks
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;(setq gc-cons-threshold (* 200 1024 1024)  ; 200MB
-;      gc-cons-percentage 0.6)
-;(setq gc-cons-threshold (* 100 1024 1024)) ;; Lower threshold for normal usage
-;(add-hook 'emacs-startup-hook
-;          (lambda ()
-;            (setq gc-cons-threshold (* 50 1024 1024)))) ;; Reduce after startup
 
 ;; Use gcmh package (Garbage Collector Magic Hack) - already included in Doom
-(use-package! gcmh
-  :config
+;; Use gcmh package (Garbage Collector Magic Hack)
+(after! gcmh
   (setq gcmh-idle-delay 5
-        gcmh-high-cons-threshold (* 32 1024 1024)  ;; 32MB when idle
-        gcmh-low-cons-threshold (* 16 1024 1024))  ;; 16MB when in use
-  (gcmh-mode 1))
+        gcmh-high-cons-threshold (* 1024 1024 1024)  ;; 1GB when idle
+        gcmh-low-cons-threshold (* 16 1024 1024)))  ;; 16MB when in use
 
 ;; Faster file operations
 (setq process-adaptive-read-buffering nil)
@@ -57,6 +50,8 @@
 (setq lsp-log-io nil) ;; Avoid performance hits from excessive logging
 
 ;; Optimize LSP performance further
+;; Optimize LSP performance further
+(setq lsp-use-plists t)
 (after! lsp-mode
   (setq lsp-idle-delay 0.5)
   (setq lsp-response-timeout 5)
@@ -64,7 +59,11 @@
   (setq lsp-signature-auto-activate nil)
   (setq lsp-headerline-breadcrumb-enable nil)
   (setq lsp-ui-doc-enable nil)
-  (setq lsp-ui-sideline-enable nil))
+  (setq lsp-ui-sideline-enable nil)
+  ;; Disable expensive features
+  (setq lsp-lens-enable nil)
+  (setq lsp-enable-symbol-highlighting nil)
+  (setq lsp-semantic-tokens-enable nil))
 
 ;; Evil mode performance
 (after! evil-escape
@@ -72,9 +71,10 @@
 (setq evil-esc-delay 0.001) ;; Reduce delay for ESC in terminal
 
 ;; Company mode optimization
+;; Company mode optimization
 (after! company
-  (setq company-idle-delay 0.2)  ;; Reduce delay (default is 0.5s)
-  (setq company-minimum-prefix-length 2)  ;; Reduce completion overhead
+  (setq company-idle-delay 0.5)  ;; Increase delay to reduce overhead
+  (setq company-minimum-prefix-length 2)
   (setq company-selection-wrap-around t)
   (setq company-tooltip-limit 10)
   (setq company-tooltip-minimum-width 15))
@@ -91,8 +91,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq doom-theme 'gruber-darker)
 
-;(setq doom-font (font-spec :family "JetBrains Mono" :size 18))
-(setq doom-font (font-spec :family "Google Sans Code" :size 17))
+;; Font priority: Intel One Mono (variants) > JetBrains Mono
+(setq doom-font (cond
+                 ((find-font (font-spec :family "Intel One Mono"))
+                  (font-spec :family "Intel One Mono" :size 15))
+                 ((find-font (font-spec :family "IntelOne Mono"))
+                  (font-spec :family "IntelOne Mono" :size 15))
+                 (t
+                  (font-spec :family "JetBrains Mono" :size 15))))
 
 ;; Window size on startup
 (setq default-frame-alist '((width . 100) (height . 40)))
