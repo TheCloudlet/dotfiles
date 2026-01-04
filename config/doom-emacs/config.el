@@ -91,14 +91,19 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq doom-theme 'gruber-darker)
 
-;; Font priority: Intel One Mono (variants) > JetBrains Mono
+;; Font priority: Intel One Mono (variants) > Fira Code > JetBrains Mono
 (setq doom-font (cond
                  ((find-font (font-spec :family "Intel One Mono"))
                   (font-spec :family "Intel One Mono" :size 15))
                  ((find-font (font-spec :family "IntelOne Mono"))
                   (font-spec :family "IntelOne Mono" :size 15))
+                 ((find-font (font-spec :family "Fira Code"))
+                  (font-spec :family "Fira Code" :size 15))
                  (t
                   (font-spec :family "JetBrains Mono" :size 15))))
+
+;; Adjust line height (equivalent to VS Code's "editor.lineHeight": "1.45")
+(setq-default line-spacing 0.1) 
 
 ;; Window size on startup
 (setq default-frame-alist '((width . 100) (height . 40)))
